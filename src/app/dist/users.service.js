@@ -106,6 +106,12 @@ var UsersService = /** @class */ (function () {
     UsersService.prototype.getUsersList = function () {
         return this.usersList;
     };
+    UsersService.prototype.findUser = function (query) {
+        return this.usersList.filter(function (item) { return item.name.toLowerCase().includes(query.toLowerCase()); });
+    };
+    UsersService.prototype.sortUsers = function (direction) {
+        return this.usersList;
+    };
     UsersService = __decorate([
         core_1.Injectable({
             providedIn: 'root'

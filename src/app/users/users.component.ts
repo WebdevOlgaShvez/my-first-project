@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UsersService} from './../users.service'
+import { User } from '../shared/user';
 
 @Component({
   selector: 'app-users',
@@ -7,7 +8,7 @@ import {UsersService} from './../users.service'
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  usersList=[];
+  usersList: User[]=[];
 
   constructor(public us: UsersService) { }
 
@@ -15,5 +16,12 @@ export class UsersComponent implements OnInit {
     this.usersList= this.us.getUsersList();
   }
  
+  search(query: string){
+    this.usersList= this.us.findUser(query);
 
+  }
+   sort(direction: string){
+    this.usersList= this.us.sortUsers(direction);
+
+   }
 }

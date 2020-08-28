@@ -16,6 +16,12 @@ var UsersComponent = /** @class */ (function () {
     UsersComponent.prototype.ngOnInit = function () {
         this.usersList = this.us.getUsersList();
     };
+    UsersComponent.prototype.search = function (query) {
+        this.usersList = this.us.findUser(query);
+    };
+    UsersComponent.prototype.sort = function (direction) {
+        this.usersList = this.us.sortUsers(direction);
+    };
     UsersComponent = __decorate([
         core_1.Component({
             selector: 'app-users',
