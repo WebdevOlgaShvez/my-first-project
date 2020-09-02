@@ -19,6 +19,8 @@ var icon_1 = require("@angular/material/icon");
 var input_1 = require("@angular/material/input");
 var select_1 = require("@angular/material/select");
 var form_field_1 = require("@angular/material/form-field");
+var forms_1 = require("@angular/forms");
+var search_pipe_1 = require("./users/search.pipe");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -26,7 +28,8 @@ var AppModule = /** @class */ (function () {
         core_1.NgModule({
             declarations: [
                 app_component_1.AppComponent,
-                users_component_1.UsersComponent
+                users_component_1.UsersComponent,
+                search_pipe_1.SearchPipe
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -38,6 +41,7 @@ var AppModule = /** @class */ (function () {
                 input_1.MatInputModule,
                 form_field_1.MatFormFieldModule,
                 button_1.MatButtonModule,
+                forms_1.FormsModule
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]

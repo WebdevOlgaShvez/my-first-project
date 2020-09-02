@@ -109,8 +109,18 @@ var UsersService = /** @class */ (function () {
     UsersService.prototype.findUser = function (query) {
         return this.usersList.filter(function (item) { return item.name.toLowerCase().includes(query.toLowerCase()); });
     };
-    UsersService.prototype.sortUsers = function (direction) {
-        return this.usersList;
+    UsersService.prototype.sortUsers = function (val) {
+        var direction = !!parseInt(val, 10) ? -1 : 1;
+        return this.usersList.sort(function (a, b) { return direction * (a.name > b.name ? 1 : -1); });
+    };
+    UsersService.prototype.addUser = function (user) {
+        this.usersList.unshift(user);
+    };
+    UsersService.prototype.deleteUsers = function (users) {
+        var _this = this;
+        users.forEach(function (user) {
+            _this.usersList = _this.usersList.filter(function (item) { return item.id !== user.id; });
+        });
     };
     UsersService = __decorate([
         core_1.Injectable({

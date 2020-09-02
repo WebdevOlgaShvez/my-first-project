@@ -22,6 +22,30 @@ var UsersComponent = /** @class */ (function () {
     UsersComponent.prototype.sort = function (direction) {
         this.usersList = this.us.sortUsers(direction);
     };
+    ;
+    UsersComponent.prototype.addUser = function () {
+        this.us.addUser({
+            id: 1,
+            name: this.name,
+            username: this.username,
+            email: "",
+            role: this.role,
+            phone: "",
+            website: ""
+        });
+        this.usersList = this.us.getUsersList();
+    };
+    UsersComponent.prototype.selectItem = function (users) {
+        var _this = this;
+        this.selectedList = [];
+        users.forEach(function (element) {
+            _this.selectedList.push(element.value);
+        });
+    };
+    UsersComponent.prototype.deleteUsers = function () {
+        this.us.deleteUsers(this.selectedList);
+        this.usersList = this.us.getUsersList();
+    };
     UsersComponent = __decorate([
         core_1.Component({
             selector: 'app-users',
